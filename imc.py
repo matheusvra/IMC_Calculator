@@ -45,7 +45,12 @@ class Screen:
         self.event, self.values = self.window.read()
         
         if self.event == 'calculate':
-            if is_number(self.values["height"]) and is_number(self.values["weight"]):
+            # Easter egg
+            if is_number(self.values["height"]) and self.values["weight"] == '':
+                self.window.Element('test_result').Update('')
+                self.window.Element('test_result2').Update('')
+                sg.popup_ok(f'Your height is {self.values["height"]}m')
+            elif is_number(self.values["height"]) and is_number(self.values["weight"]):
                 if float(self.values["height"]) > 0 and float(self.values["weight"]) > 0:
                     self.calculate_imc(float(self.values["height"]),float(self.values["weight"]))
                     self.window.Element('test_result').Update(f'Your IMC (BMI) is {self.IMC}')

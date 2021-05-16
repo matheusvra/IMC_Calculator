@@ -16,3 +16,5 @@
 ## Running
 
     python imc.py
+
+![alt text](https://github.com/[matheusvra]/[IMC_Calculator]/blob/[main]/image.jpg?raw=true)
