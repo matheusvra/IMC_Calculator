@@ -1,5 +1,7 @@
+# Module used to generate the GUI
 import PySimpleGUI as sg
 
+# Function that tests if a string represents a valid float number
 def is_number(s):
     try:
         float(s)
@@ -7,6 +9,7 @@ def is_number(s):
     except ValueError:
         return False
 
+# Class that contains the methods of the initial screen
 class Screen:
     __layout = None
     window = None
@@ -15,10 +18,12 @@ class Screen:
     IMC: float
     IMC_status: float
 
+    # Constructor
     def __init__(self, initial_layout, title=''):
         self.__layout = initial_layout
         self.window = sg.Window(title, self.__layout)
 
+    # Method that calculate the IMC (BMI) and the equivalent weight status 
     def calculate_imc(self, height, weight):
         self.IMC = round(weight/(height**2),2)
         if self.IMC < 18.5:
@@ -34,11 +39,11 @@ class Screen:
         else:
             self.IMC_status = 'Obesity level 3 (morbid)'
 
+    # Method that monitors events on the home screen
     def read_event(self):
         must_continue = True
         self.event, self.values = self.window.read()
-        # End program if user closes window or
-        # presses the OK button
+        
         if self.event == 'calculate':
             if is_number(self.values["height"]) and is_number(self.values["weight"]):
                 if float(self.values["height"]) > 0 and float(self.values["weight"]) > 0:
@@ -72,8 +77,10 @@ layout_homescreen = [[sg.Text("IMC Calculator",border_width=4, font=('Helvetica'
     [sg.Text("", key='test_result', border_width=4, font=('Helvetica', 15), size=(20, 1))],
     [sg.Text("", key='test_result2', border_width=4, font=('Helvetica', 15), size=(20, 1))]]
 
+# Create isntance of the class Screen
 home = Screen(title="IMC Calculator", initial_layout=layout_homescreen)
 
+# Defines the main event loop
 def main_loop():
     while home.read_event():
         pass
