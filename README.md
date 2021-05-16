@@ -17,4 +17,6 @@
 
     python imc.py
 
-![alt text](https://github.com/[matheusvra]/[IMC_Calculator]/blob/[main]/image.jpg?raw=true)
+<p align="left">
+  <img src="image.jpg" width="350" >
+</p>
