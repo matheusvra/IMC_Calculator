@@ -16,7 +16,7 @@ class Screen:
     event = None
     values = None
     IMC: float
-    IMC_status: float
+    IMC_status: str
 
     # Constructor
     def __init__(self, initial_layout, title=''):
