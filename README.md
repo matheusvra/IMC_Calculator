@@ -2,16 +2,9 @@
 
 ### This Repository is a simple demonstration of the PySimpleGui module, used to generate a Gui that calculates the IMC (BMI).
 
-## Requirements 
+## Requirements Installation
 
-* Python 3.9.1 with Pip
-
-* PySimpleGui Version: 4.41.2
-
-    Installation: 
-    ```console
-        python -m pip install PySimpleGui==4.41.2 pip
-    ```
+* Python3 -m pip install requirements.txt
 
 ## Running
 
